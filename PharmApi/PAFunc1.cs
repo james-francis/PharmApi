@@ -35,10 +35,20 @@ namespace PharmApi
                     {
                         Content = new StringContent(JsonConvert.SerializeObject(new { message = "will be filled" }), Encoding.UTF8, "application/json")
                     };
-                case "pharmLoc":
+                case "pharmFind":
                     return new HttpResponseMessage(HttpStatusCode.OK)
                     {
                         Content = new StringContent(JsonConvert.SerializeObject(new { message = "is delayed" }), Encoding.UTF8, "application/json")
+                    };
+                case "pharmWhen":
+                    return new HttpResponseMessage(HttpStatusCode.OK)
+                    {
+                        Content = new StringContent(JsonConvert.SerializeObject(new { message = "by 4pm" }), Encoding.UTF8, "application/json")
+                    };
+                case "pharmCall":
+                    return new HttpResponseMessage(HttpStatusCode.OK)
+                    {
+                        Content = new StringContent(JsonConvert.SerializeObject(new { message = "is called" }), Encoding.UTF8, "application/json")
                     };
                 default:
                     return new HttpResponseMessage(HttpStatusCode.OK)
