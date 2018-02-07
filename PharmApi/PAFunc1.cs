@@ -28,23 +28,29 @@ namespace PharmApi
                 dynamic data = await req.Content.ReadAsAsync<object>();
                 action = data?.action;
             }
+
+            // all responses are canned due to lacking a real pharmacy api to talk to.
             switch (action)
             {
+                // determines if a prescription can be filled.
                 case "pharmFill":
                     return new HttpResponseMessage(HttpStatusCode.OK)
                     {
                         Content = new StringContent(JsonConvert.SerializeObject(new { message = "will be filled" }), Encoding.UTF8, "application/json")
                     };
+                // determines where a prescription is.
                 case "pharmFind":
                     return new HttpResponseMessage(HttpStatusCode.OK)
                     {
                         Content = new StringContent(JsonConvert.SerializeObject(new { message = "is delayed" }), Encoding.UTF8, "application/json")
                     };
+                // determines when a prescription will be delivered.
                 case "pharmWhen":
                     return new HttpResponseMessage(HttpStatusCode.OK)
                     {
                         Content = new StringContent(JsonConvert.SerializeObject(new { message = "by 4pm" }), Encoding.UTF8, "application/json")
                     };
+                // calls a doctor.
                 case "pharmCall":
                     return new HttpResponseMessage(HttpStatusCode.OK)
                     {
