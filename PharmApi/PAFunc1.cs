@@ -48,7 +48,7 @@ namespace PharmApi
                 case "pharmWhen":
                     return new HttpResponseMessage(HttpStatusCode.OK)
                     {
-                        Content = new StringContent(JsonConvert.SerializeObject(new { message = "will be ready by 4pm" }), Encoding.UTF8, "application/json")
+                        Content = new StringContent(JsonConvert.SerializeObject(new { message = "will be delivered by 4pm" }), Encoding.UTF8, "application/json")
                     };
                 // calls a doctor.
                 case "pharmCall":
